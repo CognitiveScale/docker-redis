@@ -6,7 +6,7 @@ MAINTAINER Indy Beck indy@c12e.com
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install ruby2.1 ruby2.1-dev build-essential && \
- gem install redmon && \
+ gem2.1 install redmon && \
  wget -q -O /tmp/redis-2.8.17.tar.gz http://download.redis.io/releases/redis-2.8.17.tar.gz && \
  tar -zxf /tmp/redis-2.8.17.tar.gz -C /opt && \
  cd /opt/redis-2.8.17 && \
