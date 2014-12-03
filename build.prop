@@ -1,0 +1,3 @@
+SERVICE=redis
+RELEASE=2.8.17
+REGISTRY=nova.registry.c1.io:5000
