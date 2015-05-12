@@ -2,7 +2,10 @@
 # version: 2.8.17
 
 FROM c12e/debian
-MAINTAINER Indy Beck indy@c12e.com
+MAINTAINER CognitiveScale.com
+ENV SERVICE_NAME=redis
+
+ADD supervisor.conf /etc/supervisor/conf.d/${SERVICE_NAME}.conf
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install ruby2.1 ruby2.1-dev build-essential supervisor && \
@@ -14,9 +17,7 @@ RUN apt-get update && apt-get -y install ruby2.1 ruby2.1-dev build-essential sup
  mkdir -p /data/redis /logs/
 
 ADD redis.conf /opt/redis-2.8.17/redis.conf
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 6379 4567
-VOLUME ["/data", "/logs"]
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
