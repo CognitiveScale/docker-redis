@@ -4,7 +4,7 @@
 FROM c12e/debian
 MAINTAINER CognitiveScale.com
 
-ADD supervisor.conf /etc/supervisor/conf.d/${SERVICE_NAME}.conf
+ADD supervisor.conf /etc/supervisor/conf.d/redis.conf
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install ruby2.1 ruby2.1-dev build-essential supervisor && \
