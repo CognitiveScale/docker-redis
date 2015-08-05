@@ -3,7 +3,6 @@
 
 FROM c12e/debian
 MAINTAINER CognitiveScale.com
-ENV SERVICE_NAME=redis
 
 ADD supervisor.conf /etc/supervisor/conf.d/${SERVICE_NAME}.conf
 
